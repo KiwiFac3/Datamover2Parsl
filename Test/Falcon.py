@@ -10,9 +10,6 @@ import sys
 sys.path.insert(0, '/home/mabughosh/Datamover2Parsl/')
 from data_provider.falcon import FalconStaging
 
-# set the working directory and host for the receiver
-working_dir = '/home/mabughosh/Files/'
-
 
 # define the conversion function
 @python_app
@@ -24,8 +21,7 @@ def convert(inputs=[]):
 config = Config(
     executors=[
         HighThroughputExecutor(
-            working_dir=working_dir,
-            storage_access=[FalconStaging("134.197.94.245")],
+            storage_access=[FalconStaging()],
             max_workers=8
         ),
     ],
@@ -37,7 +33,7 @@ parsl.load(config)
 # start a timer to record the elapsed time
 start_time = time.time()
 
-file1 = File('falcon:')
+file1 = File('falcon://134.197.94.245/home/mabughosh/Files1/')
 
 r = convert(inputs=[file1])
 print(r.result())
