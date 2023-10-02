@@ -7,7 +7,7 @@ import time
 
 import sys
 
-sys.path.insert(0, '/home/mabughosh/Datamover2Parsl/')
+sys.path.insert(0, '/data/mabughosh/Datamover2Parsl/')
 from data_provider.falcon import FalconStaging
 
 
@@ -33,7 +33,7 @@ parsl.load(config)
 # start a timer to record the elapsed time
 start_time = time.time()
 
-file1 = File('falcon://134.197.94.245/home/mabughosh/Files1/')
+file1 = File('falcon://134.197.113.71/data/mabughosh/files/')
 
 r = convert(inputs=[file1])
 print(r.result())
