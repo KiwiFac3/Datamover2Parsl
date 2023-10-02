@@ -106,6 +106,7 @@ homework1/
 **/*.DS_Store
 config.py
 data/
+runinfo/
 .vscode
 **/*.log
 **simulation**
