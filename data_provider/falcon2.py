@@ -1,7 +1,6 @@
 import logging
 from functools import partial
 import subprocess
-from typing import Optional
 import zmq
 import json
 
