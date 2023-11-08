@@ -8,7 +8,7 @@ import time
 import sys
 
 sys.path.insert(0, '/data/mabughosh/Datamover2Parsl/')
-from data_provider.falcon2 import FalconStaging
+from data_provider.falcon import FalconStaging
 
 # set the working directory and host for the receiver
 root_dir = '/data/mabughosh/files/'
@@ -40,7 +40,7 @@ start_time = time.time()
 
 inputs = []
 inputs.append(File('falcon://134.197.113.71/data/mabughosh/files/?8080'))
-inputs.append(File('falcon://134.197.113.71/data/mabughosh/files1/?5000'))
+inputs.append(File('falcon://134.197.113.70/data/mabughosh/files1/?5000'))
 
 #print('Here')
 convert_tasks = []
