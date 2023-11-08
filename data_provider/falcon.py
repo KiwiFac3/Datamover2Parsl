@@ -64,11 +64,7 @@ class FalconStaging(Staging, RepresentationMixin):
 
         # Initialize a REQ socket and connect to the specified netloc
         zmq_socket = zmq_context.socket(zmq.REQ)
-        if file.query == '8080':
-            zmq_socket.connect("tcp://" + file.netloc + ":5555")
-        else:
-            zmq_socket.connect("tcp://" + file.netloc + ":5556")
-        #zmq_socket.connect("tcp://" + file.netloc + ":5555")
+        zmq_socket.connect("tcp://" + file.netloc + ":5555")
 
         # Define the data to send
         data = {
