@@ -13,8 +13,6 @@ from data_provider.falcon import FalconStaging
 # set the working directory and host for the receiver
 root_dir = '/data/mabughosh/files/'
 
-#134.197.94.245
-#134.197.113.71
 # define the conversion function
 @python_app
 def convert(inputs=[]):
@@ -42,7 +40,6 @@ inputs = []
 inputs.append(File('falcon://134.197.113.71/data/mabughosh/files/?8080'))
 inputs.append(File('falcon://134.197.113.70/data/mabughosh/files1/?5000'))
 
-#print('Here')
 convert_tasks = []
 
 # convert the input files and save the outputs
