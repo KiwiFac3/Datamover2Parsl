@@ -23,18 +23,15 @@ file_path = data.get("file_path", "No file path provided")
 sender_command = ["falcon", "sender", "--host", host, "--port", port, "--data_dir",
                   file_path, "--method", "probe"]
 print(sender_command)
-time.sleep(0.1)
 try:
     subprocess.run(sender_command, check=True)
 except subprocess.CalledProcessError as e:
-    print(f"Command failed with exit code {e.returncode}: {e.stderr}")
+    raise Exception(f"Command failed with exit code {e.returncode}: {e.stderr}")
 except FileNotFoundError:
-    print("The 'falcon' command was not found. Make sure it's installed and in your system's PATH.")
+    raise Exception("The 'falcon' command was not found. Make sure it's installed and in your system's PATH.")
 
 # Send the response back to the client
 zmq_socket.send_string("Received")
 
 zmq_socket.close()
 zmq_context.term()
-
-
